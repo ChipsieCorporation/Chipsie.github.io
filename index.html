@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chipsie</title>
+  <link rel="shortcut icon" href="assets/logo.jpg" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white shadow sticky-top">
+    <div class="container-xl">
+      <a class="navbar-brand" href="#">
+        <img src="assets/logo.jpg" alt="Chipsie" height="80">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-black me-2" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-black me-2" href="#menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#menu" onclick="location.href='#menu'" id="allLink">All</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#menu" onclick="location.href='#menu'" id="dishesLink">Sayote Chips</a></li>
+              <li><a class="dropdown-item" href="#menu" onclick="location.href='#menu'" id="drinksLink">Sili Chips</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black me-2" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black me-2" href="#contacts">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black mx-2" onclick="location.href='ff-login.html'">
+              <i class="ri-user-3-line" style="cursor: pointer;"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black mx-2" onclick="viewCart()">
+              <i class="ri-shopping-cart-line" style="cursor: pointer;"></i>
+            </a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="What craves you?" aria-label="Search" list="foodSuggestions" id="foodSearch">
+          <datalist id="foodSuggestions"></datalist>
+          <button class="btn btn-danger" type="submit" onclick="location.href='#menu';">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="cart">
+    <ul class="cart-lists" style="display: flex; flex-direction: column; gap: 20px;">
+      <li><i class="ri-close-large-line fs-2" style="cursor: pointer;" onclick="hideCart()"></i></li>
+      <p class="fs-3 total">Total: &#8369 0.00</p>
+      <button class="btn btn-outline-danger d-none confirm-btn">Confirm Order</button>
+    </ul>
+  </div>
+
+  <div id="heroSlider" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+
+      <div class="carousel-item vh-100 text-center active bg-cover slide-1">
+        <div class="container h-100 d-flex align-items-center justify-content-center">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h6 class="text-white">Chipsie</h6>
+              <h1 class="display-1 text-white">SAY-SILI CHIPS</h1>
+              <a href="#menu" class="btn btn-danger">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item vh-100 text-center bg-cover slide-2">
+        <div class="container h-100 d-flex align-items-center justify-content-center">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <h6 class="text-white">Chipsie</h6>
+              <h1 class="display-1 text-white">SAY-SILI CHIPS</h1>
+              <a href="#menu" class="btn btn-danger">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <section id="menu" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 intro-text">
+          <h1>HOMEMADE CHIPS</h1>
+          <p>Sayote or Sili?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-dishes-tab" data-bs-toggle="pill" data-bs-target="#pills-dishes" type="button" role="tab" aria-controls="pills-dishes" aria-selected="true"><i class="bi bi-emoji-smile"></i> Sayote Chips</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-drinks-tab" data-bs-toggle="pill" data-bs-target="#pills-drinks" type="button" role="tab" aria-controls="pills-drinks" aria-selected="true"><i class="bi bi-emoji-angry"></i> Sili Chips</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab" tabindex="0">
+
+          <div class="row gy-4">
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="100">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic1.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-5">&#8369 10.00 - &#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Sayote Chips</h5>
+                  <p class="small">Crispy sayote is a delicious Filipino snack made from thinly sliced sayote that is deep-fried until golden brown and crispy. This snack is healthy and the best partner with Mayo-ketchup sauce.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="200">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic4.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2"> &#8369 10.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Small</h5>
+                  <button class="btn btn-outline-danger food-2" onclick="food2Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="300">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic3.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2"> &#8369 15.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Medium</h5>
+                  <button class="btn btn-outline-danger food-3" onclick="food3Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="400">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic2.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2"> &#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Large</h5>
+                  <button class="btn btn-outline-danger food-4" onclick="food4Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="100">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic1.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-5">&#8369 10.00 - &#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Sili Chips</h5>
+                  <p class="small">Kunyari sili chips muna toh HAHAHAHHAH</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="200">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic4.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2">&#8369 10.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Small</h5>
+                  <button class="btn btn-outline-danger food-6" onclick="food6Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="300">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic3.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2">&#8369 15.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Medium</h5>
+                  <button class="btn btn-outline-danger food-7" onclick="food7Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="400">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic2.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2">&#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Large</h5>
+                  <button class="btn btn-outline-danger food-8" onclick="food8Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show" id="pills-dishes" role="tabpanel" aria-labelledby="pills-dishes-tab" tabindex="0">
+          <h4>Sayote Chips</h4>
+          
+          <div class="row gy-4">
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="100">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic1.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-5">&#8369 10.00 - &#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Sayote Chips</h5>
+                  <p class="small">Crispy sayote is a delicious Filipino snack made from thinly sliced sayote that is deep-fried until golden brown and crispy. This snack is healthy and the best partner with Mayo-ketchup sauce.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="200">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic4.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2"> &#8369 10.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Small</h5>
+                  <button class="btn btn-outline-danger food-2" onclick="food2Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="300">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic3.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2"> &#8369 15.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Medium</h5>
+                  <button class="btn btn-outline-danger food-3" onclick="food3Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="400">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic2.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2"> &#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Large</h5>
+                  <button class="btn btn-outline-danger food-4" onclick="food4Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show" id="pills-drinks" role="tabpanel" aria-labelledby="pills-drinks-tab" tabindex="0">
+          <h4>Sili Chips</h4>
+          <div class="row gy-4">
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="100">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic1.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-5">&#8369 10.00 - &#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Sili Chips</h5>
+                  <p class="small">Kunyari sili chips muna toh HAHAHAHHAH</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="200">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic4.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2">&#8369 10.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Small</h5>
+                  <button class="btn btn-outline-danger food-6" onclick="food6Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="300">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic3.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2">&#8369 15.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Medium</h5>
+                  <button class="btn btn-outline-danger food-7" onclick="food7Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="400">
+              <div class="menu-item bg-white shadow-hover">
+                <img src="assets/pic2.jpg" alt="">
+                <div class="menu-item-content p-4">
+                  <div>
+                    <span class="text-primary fs-2">&#8369 20.00</span>
+                  </div>
+                  <h5 class="mt-1 mb-2">Large</h5>
+                  <button class="btn btn-outline-danger food-8" onclick="food8Func();">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="row gy-5 align-items-center">
+        <div class="col-lg-5" data-aos="zoom-in-up"
+        data-aos-duration="1000" data-aos-delay="100">
+          <img src="assets/pnc-bg.jpg" alt="Chipsie">
+        </div>
+        <div class="col-lg-5 px-4">
+          <h1>About Us</h1>
+          <div class="divider my-4"></div>
+          <p>Say-Sili Chips are among the best chip snacks in Pamantasan ng Cabuyao (University of Cabuyao), It is a vegetable-based snack with a unique flavor. Say-Sili Chips comes in a variety of flavors, including Cheese, Barbeque, and Original. Say-Sili Chps, a product of Chipsie Corporation, are distinctive, delicious, affordable, and health-promoting. We also want it to taste exactly like regular chips, but with a different kind of vegetable. Say-Sili was created for students who don't like to eat vegetables given that it looks and tastes a lot like regular chips. If you'd rather eat healthy snacks, this is an alternative. Say-Sili is ready to provide you with high-quality flavors and taste, and is available in Pamantasan ng Cabuyao. The team members of Chipsie Corporation are a group of people with various experiences in food processing. This product is healthy, safe, and beneficial to all users. Let's eat veggies to stay healthy.</p>
+          <a href="#contacts" class="btn btn-danger">Connect with us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 intro-text">
+          <h1>Reach Our Customer Service</h1>
+          <p>Access customer service for prompt and tailored assistance. Whether you have feedback to share or simply want to hear from us, we're here to help.</p>
+        </div>
+      </div>
+      <form action="#" class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="row g-3">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group col-md-12">
+              <textarea cols="30" rows="5" class="form-control" placeholder="Enter message here..." required></textarea>
+            </div>
+            <div class="form-group col-md-12">
+              <button class="btn btn-danger" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-cover">
+    <div class="footer-top">
+      <div class="container text-white">
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <img src="assets/logo.jpg" alt="" style="width: 50%;" class="mb-4">
+            <p>Chipsie Corporation</p>
+            <div class="social-links">
+              <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-white me-3"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="text-white me-3"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 ms-auto">
+            <h6 class="text-white mb-4 ">Quick Links</h6>
+            <p class="mb-1"><a href="#" class="text-white">Home</a></p>
+            <p class="mb-1"><a href="#menu" class="text-white">Products</a></p>
+            <p class="mb-1"><a href="#about" class="text-white">About</a></p>
+            <p class="mb-5"><a href="#contacts" class="text-white">Contacts</a></p>
+          </div>
+          <div class="col-lg-3">
+            <h6 class="text-white mb-4">Active Hours</h6>
+            <p class="mb-1">Mondays - Fridays : 7:00 AM - 5:00 PM</p>
+            <p class="mb-1">Saturdays - Sundays : 10:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <div class="container">
+        <div class="row justify-content-start">
+          <div class="col-auto">
+            <p class="mb-0 text-light">&copy; Chipsie 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script src="add.js"></script>
+  <script src="remove.js"></script>
+  <script>
+    const cartElem = document.querySelector(".cart");
+    function viewCart() {
+      cartElem.style.display = "block";
+    }
+    function hideCart() {
+      cartElem.style.display = "none";
+    }
+
+    AOS.init();
+  </script>
+</body>
+</html>
