@@ -14,7 +14,7 @@ function food2Func() {
         let element = `
         <li style="margin-bottom: 80px;">
             <div class="cart-item rounded" style="display: flex; align-items: center; gap: 16px;">
-                <img src="assets/pic4.jpg" style="width: 80px; height: auto;">
+                <img src="assets/pic1.jpg" style="width: 80px; height: auto;">
                 <div>Sayote Chips (Small)</div>
                 <button class="btn btn-outline-danger" onclick="remove2(${index})">Remove</button>
             </div>
@@ -44,7 +44,7 @@ function food3Func() {
         let element = `
         <li style="margin-bottom: 80px;">
             <div class="cart-item rounded" style="display: flex; align-items: center; gap: 16px;">
-                <img src="assets/pic3.jpg" style="width: 80px; height: auto;">
+                <img src="assets/pic1.jpg" style="width: 80px; height: auto;">
                 <div>Sayote Chips (Medium)</div>
                 <button class="btn btn-outline-danger" onclick="remove3(${index})">Remove</button>
             </div>
@@ -74,7 +74,7 @@ function food4Func() {
         let element = `
         <li style="margin-bottom: 80px;">
             <div class="cart-item rounded" style="display: flex; align-items: center; gap: 16px;">
-                <img src="assets/pic2.jpg" style="width: 80px; height: auto;">
+                <img src="assets/pic1.jpg" style="width: 80px; height: auto;">
                 <div>Sayote Chips (Large)</div>
                 <button class="btn btn-outline-danger" onclick="remove4(${index})">Remove</button>
             </div>
@@ -105,7 +105,7 @@ function food6Func() {
         let element = `
         <li style="margin-bottom: 80px;">
             <div class="cart-item rounded" style="display: flex; align-items: center; gap: 16px;">
-                <img src="assets/pic4.jpg" style="width: 80px; height: auto;">
+                <img src="assets/sili_pic1.jpg" style="width: 80px; height: auto;">
                 <div>Sili Chips (Small)</div>
                 <button class="btn btn-outline-danger" onclick="remove6(${index})">Remove</button>
             </div>
@@ -135,7 +135,7 @@ function food7Func() {
         let element = `
         <li style="margin-bottom: 80px;">
             <div class="cart-item rounded" style="display: flex; align-items: center; gap: 16px;">
-                <img src="assets/pic3.jpg" style="width: 80px; height: auto;">
+                <img src="assets/sili_pic1.jpg" style="width: 80px; height: auto;">
                 <div>Sili Chips (Medium)</div>
                 <button class="btn btn-outline-danger" onclick="remove7(${index})">Remove</button>
             </div>
@@ -165,7 +165,7 @@ function food8Func() {
         let element = `
         <li style="margin-bottom: 80px;">
             <div class="cart-item rounded" style="display: flex; align-items: center; gap: 16px;">
-                <img src="assets/pic2.jpg" style="width: 80px; height: auto;">
+                <img src="assets/sili_pic1.jpg" style="width: 80px; height: auto;">
                 <div>Sili Chips (Large)</div>
                 <button class="btn btn-outline-danger" onclick="remove8(${index})">Remove</button>
             </div>
