@@ -88,11 +88,11 @@ img {
 }
 
 .slide-1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/pnc-bg.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/bg-1.jpg);
 }
 
 .slide-2 {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) ,url(assets/pnc-bg2.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) ,url(assets/pnc-bg.jpg);
 }
 
 #heroSlider h6::after, #heroSlider h6::before {
